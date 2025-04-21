@@ -1,5 +1,10 @@
 # Asmy - Python Multi-Architecture Assembler
 
+[![PyPI](https://img.shields.io/pypi/v/asmy)](https://pypi.org/project/asmy/)
+[![Tests](https://github.com/zserge/asmy/actions/workflows/test.yml/badge.svg)](https://github.com/zserge/asmy/actions)
+[![License](https://img.shields.io/github/license/zserge/asmy)](LICENSE)
+[![Python](https://img.shields.io/pypi/pyversions/asmy)](https://pypi.org/project/asmy/)
+
 A minimal Python-based assembler for multiple architectures.
 
 ## Features
@@ -26,5 +31,5 @@ print(asm.finalize().hex())
 ## Installation
 
 ```bash
-pip install pyasm
+pip install asmy
 ```
