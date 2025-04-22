@@ -17,15 +17,18 @@ A minimal Python-based assembler for multiple architectures.
 ## Example (CHIP-8)
 
 ```python
-from asmy.chip8 import L, JP, CLS, db, org
+from asmy.chip8 import *
 
 org(0x200)
-with L('start'):
-    CLS()
-    JP(L('start'))
+with label("start"):
+    ld(V0, 0)
+with label("loop"):
+    add(V0, 1)
+    cls()
+    jp("loop")
 
-db(0x80, 'Hello', 0)
-print(asm.finalize().hex())
+# Print resulting ROM in hex
+print(asm.finalize().hex(" ", 2))
 ```
 
 ## Installation
