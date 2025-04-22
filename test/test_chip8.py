@@ -4,7 +4,7 @@ from asmy.chip8 import *
 
 class TestChip8(unittest.TestCase):
     def setUp(self):
-        reset()
+        asm.reset()
 
     def test_endless_loop(self):
         with label("start"):

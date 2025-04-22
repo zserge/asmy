@@ -30,14 +30,6 @@ def _is_label(x):
     return isinstance(x, str) and not _isreg(x)
 
 
-def reset():
-    """Reset the assembler state."""
-    asm.rom.clear()
-    asm.pc = 0x200
-    asm.labels.clear()
-    asm.fixups.clear()
-
-
 def add(x, y):
     """
     ADD I, Vx       Fx1E

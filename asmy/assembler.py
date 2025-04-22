@@ -7,6 +7,12 @@ class Assembler:
         self.fixups = []
         self.endian = endian
 
+    def reset(self):
+        self.rom.clear()
+        self.pc = self.pc_start
+        self.labels.clear()
+        self.fixups.clear()
+
     class Label:
         def __init__(self, name, assembler):
             self.name = name
