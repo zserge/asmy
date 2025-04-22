@@ -14,3 +14,6 @@ classifiers = [
     "Programming Language :: Python :: 3",
     "Topic :: Software Development :: Assemblers",
 ]
+
+[project.optional-dependencies]
+dev = ["build", "twine"]
