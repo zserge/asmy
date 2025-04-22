@@ -31,6 +31,12 @@ with label("loop"):
 print(asm.finalize().hex(" ", 2))
 ```
 
+To try this example locally:
+
+```bash
+PYTHONPATH=. python3 examples/chip8_loop.py
+```
+
 ## Installation
 
 ```bash
