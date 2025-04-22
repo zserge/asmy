@@ -14,6 +14,12 @@ A minimal Python-based assembler for multiple architectures.
 - Little/big-endian aware
 - ROM generation with .org/.db/.dw
 
+Supported architectures:
+
+- [x] [CHIP-8](https://en.wikipedia.org/wiki/CHIP-8)
+- [x] [Little Man Computer (LMC)](https://en.wikipedia.org/wiki/Little_man_computer)
+- [x] [GMC-4](https://en.wikipedia.org/wiki/GMC-4)
+
 ## Example (CHIP-8)
 
 ```python

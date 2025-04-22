@@ -4,13 +4,16 @@ asm = Assembler(endian="big", pc_start=0)
 label = lambda name: asm.label(name)
 org = lambda addr: asm.org(addr * 2)
 
+
 def _mailbox(op, addr):
     if isinstance(addr, int):
         asm.dw(op * 100 + addr % 100)
     elif isinstance(addr, str):
 
         def patch(rom, pos, addr_):
-            val = op * 100 + (addr_ % 100) // 2 # resolved address is in bytes, not in words
+            val = (
+                op * 100 + (addr_ % 100) // 2
+            )  # resolved address is in bytes, not in words
             rom[pos : pos + 2] = val.to_bytes(2, "big")
 
         asm.fixup(addr, 2, patch)
@@ -77,4 +80,4 @@ def mem():
     """Return the current memory as a list of numbers 0..999."""
     rom = asm.rom
     assert len(rom) % 2 == 0
-    return [int.from_bytes(rom[i:i+2], 'big') for i in range(0, len(rom), 2)]
+    return [int.from_bytes(rom[i : i + 2], "big") for i in range(0, len(rom), 2)]
