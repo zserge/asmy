@@ -20,12 +20,10 @@ def _fixup_branch(opcode, label_name):
     """Fixup for two-byte relative branches."""
 
     def patch(rom, pos, target_addr):
-        # next instr PC = pos + 2
-        offset = (target_addr - (pos + 2)) & 0xFF
-        rom[pos] = opcode
-        rom[pos + 1] = offset
+        rom[pos] = (target_addr - pos - 1) & 0xFF
 
-    asm.fixup(label_name, 2, patch)
+    asm.db(opcode)
+    asm.fixup(label_name, 1, patch)
 
 
 def rtn():
@@ -37,7 +35,6 @@ def setr(r, val):
     if not _is_reg(r):
         raise ValueError(f"Bad register: {r}")
     _emit_byte(0x10 | r)
-    # 16-bit constant: little-endian low then high byte
     _emit_byte(val & 0xFF)
     _emit_byte((val >> 8) & 0xFF)
 
@@ -123,14 +120,14 @@ def cpr(r):
     _emit_byte(0xD0 | r)
 
 
-def incr(r):
+def inr(r):
     """INR Rn: increment register"""
     if not _is_reg(r):
         raise ValueError(f"Bad register: {r}")
     _emit_byte(0xE0 | r)
 
 
-def decr(r):
+def dcr(r):
     """DCR Rn: decrement register"""
     if not _is_reg(r):
         raise ValueError(f"Bad register: {r}")
@@ -186,4 +183,4 @@ def bs(lbl):
 
 
 # fmt: off
-RTN, SETR, LD, ST, LDD, STD, POP, STP, ADD, SUB, POPD, CPR, INCR, DECR, BR, BNC, BC, BP, BM, BZ, BNZ, BM1, BNM1, BK, RS, BS = rtn, setr, ld, st, ldd, std, pop, stp, add, sub, popd, cpr, incr, decr, br, bnc, bc, bp, bm, bz, bnz, bm1, bnm1, bk, rs, bs
+RTN, SET, LD, ST, LDD, STD, POP, STP, ADD, SUB, POPD, CPR, INR, DCR, BR, BNC, BC, BP, BM, BZ, BNZ, BM1, BNM1, BK, RS, BS = rtn, setr, ld, st, ldd, std, pop, stp, add, sub, popd, cpr, inr, dcr, br, bnc, bc, bp, bm, bz, bnz, bm1, bnm1, bk, rs, bs
