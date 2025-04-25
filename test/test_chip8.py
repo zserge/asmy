@@ -16,12 +16,18 @@ class TestChip8(unittest.TestCase):
         asm.finalize()
         self.assertEqual(asm.rom.hex(), "00e0 1200 55aa".replace(" ", ""))
 
+    def test_uppercase(self):
+        with label("start"):
+            CLS()
+            JP("start")
+
     def test_maze(self):
         # V0: X-coordinate of the bitmap
         # V1: Y-coordinate of the bitmap
         # V2: Random number
-        ld(V0, 0)  # 6000
-        ld(V1, 0)  # 6100
+        with label("init"):
+            ld(V0, 0)  # 6000
+            ld(V1, 0)  # 6100
         with label("loop"):
             ld(I, "left")  # a222
             rnd(V2, 1)  # c201
