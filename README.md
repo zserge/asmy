@@ -21,7 +21,7 @@ Supported architectures:
 - [x] [Little Man Computer (LMC)](https://en.wikipedia.org/wiki/Little_man_computer)
 - [x] [GMC-4](https://en.wikipedia.org/wiki/GMC-4)
 - [x] [6502](https://en.wikipedia.org/wiki/MOS_Technology_6502)
-- [ ] [SWEET16](https://en.wikipedia.org/wiki/SWEET16)
+- [x] [SWEET16](https://en.wikipedia.org/wiki/SWEET16)
 
 ## Example (CHIP-8)
 
