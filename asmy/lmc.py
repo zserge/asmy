@@ -81,3 +81,7 @@ def mem():
     rom = asm.rom
     assert len(rom) % 2 == 0
     return [int.from_bytes(rom[i : i + 2], "big") for i in range(0, len(rom), 2)]
+
+
+# fmt: off
+LDA, STA, ADD, SUB, INP, OUT, HLT, BRZ, BRP, BRA, DAT = lda, sta, add, sub, inp, out, hlt, brz, brp, bra, dat

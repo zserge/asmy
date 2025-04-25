@@ -290,3 +290,7 @@ def low():
 def high():
     """HIGH        00FF"""
     dw(0x00FF)
+
+
+# fmt: off
+ADD, AND, CALL, CLS, DRW, JP, LD, OR, RET, RND, SE, SHL, SHR, SKNP, SKP, SNE, SUB, SUBN, XOR = add, band, call, cls, drw, jp, ld, bor, ret, rnd, se, shl, shr, sknp, skp, sne, sub, subn, xor

@@ -155,3 +155,7 @@ def jump(x):
 
 def mem(sep=""):
     return sep.join([f"{(x&15):x}" for x in asm.rom])
+
+
+# fmt: off
+KA, AO, CH, CY, AM, MA, MP, MM, CAL, RSTO, SETR, RSTR, CMPL, CHNG, SIFT, ENDS, ERRS, SHTS, LONS, SUND, TIMR, DSPR, DEMM, DEMP, TIA, AIA, TIY, AIY, CIA, CIY, JUMP = ka, ao, ch, cy, am, ma, mp, mm, cal, rsto, setr, rstr, cmpl, chng, sift, ends, errs, shts, lons, sund, timr, dspr, demm, demp, tia, aia, tiy, aiy, cia, ciy, jump
